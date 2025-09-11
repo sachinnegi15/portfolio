@@ -1,0 +1,6 @@
+<div class="fixed top-5 right-5 z-50 space-y-3">
+    <div *ngFor="let toast of toasts" [ngClass]="toastClasses(toast.type)"
+        class="px-6 py-3 rounded-lg shadow-lg animate-slide-in">
+        {{ toast.message }}
+    </div>
+</div>

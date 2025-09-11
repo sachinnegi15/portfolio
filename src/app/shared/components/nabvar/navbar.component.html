@@ -1,0 +1,54 @@
+<nav class="fixed top-0 left-0 w-full bg-gray-800/80 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+        <!-- Logo -->
+        <!-- <a href="/" class="text-2xl font-bold text-indigo-600">MyPortfolio</a> -->
+        <a class="flex items-center">
+            <img src="assets/popeye.png" alt="Logo" class="h-10 w-auto" />
+        </a>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-8 text-white-700 font-medium">
+            <li><a href="#home" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'home'}"
+                    class="hover:text-indigo-600">Home</a></li>
+            <li><a href="#about" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'about'}"
+                    class="hover:text-indigo-600">About</a></li>
+            <li><a href="#skills" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'skills'}"
+                    class="hover:text-indigo-600">Skills</a></li>
+            <li><a href="#projects" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'projects'}"
+                    class="hover:text-indigo-600">Projects</a></li>
+            <li><a href="#contact" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'contact'}"
+                    class="hover:text-indigo-600">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" class="md:hidden text-white-700">
+            <svg *ngIf="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg *ngIf="isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden bg-gradient-to-b from-gray-600 via-blue-900 shadow-md overflow-hidden transition-all duration-500 ease-in-out"
+        [ngClass]="{
+    'max-h-0 opacity-0': !isOpen,
+    'max-h-96 opacity-100': isOpen
+  }">
+        <ul class="flex flex-col space-y-4 py-4 px-6 text-white-700 font-medium">
+            <li><a href="#home" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'home'}"
+                    (click)="closeMenu()" class="hover:text-indigo-600">Home</a></li>
+            <li><a href="#about" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'about'}"
+                    (click)="closeMenu()" class="hover:text-indigo-600">About</a></li>
+            <li><a href="#skills" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'skills'}"
+                    (click)="closeMenu()" class="hover:text-indigo-600">Skills</a></li>
+            <li><a href="#projects" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'projects'}"
+                    (click)="closeMenu()" class="hover:text-indigo-600">Projects</a></li>
+            <li><a href="#contact" [ngClass]="{'text-indigo-600 font-semibold': activeSection === 'contact'}"
+                    (click)="closeMenu()" class="hover:text-indigo-600">Contact</a></li>
+        </ul>
+    </div>
+</nav>
